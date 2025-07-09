@@ -1,4 +1,4 @@
-console.log("Hello world")
+
 
 /* STEP 2 Get Computer choice
     1. Create a function getComputerChoice
@@ -22,8 +22,6 @@ function getComputerChoice(){
 
 }
 
-console.log(`The computer chooses: ${getComputerChoice()}`) // delete later
-
 
 /* STEP 3 Get human choice
     1. Create a function getHumanChoice
@@ -32,14 +30,12 @@ console.log(`The computer chooses: ${getComputerChoice()}`) // delete later
     4. return the variable value
 */
 
-
 function getHumanChoice(){
-    let humanChoice = prompt("What do you choose? Rock, paper or scissors: ").toLowerCase();
-    return humanChoice;
+    let input = prompt("What do you choose? Rock, paper or scissors: ").toLowerCase();
+    return input;
 
 }
 
-console.log(`The user chooses: ${getHumanChoice()}`)    
 
 /* STEP 4 Keep track of human and computer score
     1. Create two new variables named humanScore and 
@@ -49,3 +45,52 @@ console.log(`The user chooses: ${getHumanChoice()}`)
 
 let humanScore = 0
 let computerScore = 0
+
+/* STEP 5 Play a single round
+    1. Create function playRound    
+    2. Create 2 variables humanChoice and computerChoice and take previous arguments 
+    3. Print out winning/losing message: “You lose! Paper beats Rock”."
+    4. Increase the humanScore or computerScore variable based on the round winner.
+*/
+
+function playRound(humanChoice, computerChoice){
+
+    if (humanChoice === "rock" && computerChoice === "scissors"){
+       console.log("You win! Rock beats Scissors.");
+       humanScore += 1
+    } else if (humanChoice === "rock" && computerChoice === "rock"){
+        console.log("It's a draw.")
+    } else if (humanChoice === "rock" && computerChoice === "paper"){
+        console.log("You lose! Paper beats Rock")
+        computerScore += 1
+    } else if (humanChoice === "paper" && computerChoice ==="scissor"){
+        console.log("You lose! Scissors beats Paper")
+        computerScore += 1
+    } else if (humanChoice === "paper" && computerChoice ==="rock"){
+       console.log("You win! Paper beats Rock.");
+       humanScore += 1
+    } else if (humanChoice === "paper" && computerChoice ==="paper"){
+        console.log("It's a draw.")
+    } else if (humanChoice === "scissors" && computerChoice === "scissors"){
+        console.log("It's a draw.")
+    } else if (humanChoice === "scissors" && computerChoice === "paper"){
+        console.log("You win! Scissors beats Paper.");
+        humanScore += 1
+    } else if (humanChoice === "scissors" && computerChoice === "rock"){
+        console.log("You lose! Rock beats Scissors")
+        computerScore += 1
+    }
+}
+
+let humanChoice = getHumanChoice()
+let computerChoice = getComputerChoice()
+
+playRound(humanChoice, computerChoice)
+console.log(`The human score: ${humanScore}`)
+console.log(`The computer score: ${computerScore}`)
+
+/* STEP Play 5 rounds
+    1. Create function playGame  
+    2. Move playRound into playGame 
+    3. call 5 times
+    
