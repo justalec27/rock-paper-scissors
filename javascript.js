@@ -1,6 +1,6 @@
 console.log("Hello world")
 
-/* Get Computer choice
+/* STEP 2 Get Computer choice
     1. Create a function getComputerChoice
     2. Get a random number from 0 - 100
         a. If random number <= 0.33, return "rock"
@@ -25,7 +25,7 @@ function getComputerChoice(){
 console.log(`The computer chooses: ${getComputerChoice()}`) // delete later
 
 
-/* Get human choice
+/* STEP 3 Get human choice
     1. Create a function getHumanChoice
     2. create a variable for string data type
     3. prompt the user to enter a choice; rock, paper or scissors and store that in the variabel
@@ -40,3 +40,12 @@ function getHumanChoice(){
 }
 
 console.log(`The user chooses: ${getHumanChoice()}`)    
+
+/* STEP 4 Keep track of human and computer score
+    1. Create two new variables named humanScore and 
+        computerScore in the global scope.
+    2. Initialize those variables with the value of 0.
+*/
+
+let humanScore = 0
+let computerScore = 0
