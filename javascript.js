@@ -31,7 +31,7 @@ function getComputerChoice(){
 */
 
 function getHumanChoice(){
-    let input = prompt("What do you choose? Rock, paper or scissors: ").toLowerCase();
+    let input = prompt("What do you choose? Rock, paper or scissors: ");
     return input;
 
 }
@@ -82,15 +82,71 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-let humanChoice = getHumanChoice()
-let computerChoice = getComputerChoice()
+// let humanChoice = getHumanChoice()
+// let computerChoice = getComputerChoice()
 
-playRound(humanChoice, computerChoice)
-console.log(`The human score: ${humanScore}`)
-console.log(`The computer score: ${computerScore}`)
+// playRound(humanChoice, computerChoice)
+// console.log(`The human score: ${humanScore}`)
+// console.log(`The computer score: ${computerScore}`)
 
 /* STEP Play 5 rounds
     1. Create function playGame  
     2. Move playRound into playGame 
-    3. call 5 times
-    
+    3. call playRound 5 times
+*/
+
+function playGame(){
+    humanScore = 0
+    computerScore = 0
+    let humanChoice = getHumanChoice().toLowerCase();
+    let computerChoice = getComputerChoice();
+    console.log(humanChoice)
+    console.log(computerChoice)
+    playRound(humanChoice, computerChoice);
+    console.log(`The human score: ${humanScore}`)
+    console.log(`The computer score: ${computerScore}`)
+    //new round
+    humanChoice = getHumanChoice().toLowerCase();
+    computerChoice = getComputerChoice();
+    console.log(humanChoice)
+    console.log(computerChoice)
+    playRound(humanChoice, computerChoice);
+    console.log(`The human score: ${humanScore}`);
+    console.log(`The computer score: ${computerScore}`);
+
+    humanChoice = getHumanChoice().toLowerCase();
+    computerChoice = getComputerChoice();
+    console.log(humanChoice)
+    console.log(computerChoice)
+    playRound(humanChoice, computerChoice);
+    console.log(`The human score: ${humanScore}`);
+    console.log(`The computer score: ${computerScore}`);
+
+    humanChoice = getHumanChoice().toLowerCase();
+    computerChoice = getComputerChoice();
+    console.log(humanChoice)
+    console.log(computerChoice)
+    playRound(humanChoice, computerChoice);
+    console.log(`The human score: ${humanScore}`);
+    console.log(`The computer score: ${computerScore}`);
+
+    humanChoice = getHumanChoice().toLowerCase();
+    computerChoice = getComputerChoice();
+    console.log(humanChoice)
+    console.log(computerChoice)
+    playRound(humanChoice, computerChoice);
+    console.log(`The human score: ${humanScore}`);
+    console.log(`The computer score: ${computerScore}`);
+
+    if (humanScore > computerScore){
+        console.log(`Congratulations, you won the game. Your score is ${humanScore} and the computer's score is ${computerScore}`);
+    } else if (humanScore < computerScore){
+        console.log(`Too bad, you lost the game. Your score is ${humanScore} and the computer's score is ${computerScore}`);
+    } else if (humanScore === computerScore){
+        console.log(`It's a draw. Your score is ${humanScore} and the computer's score is ${computerScore}`);
+    }
+
+}
+
+//Start game
+playGame()
