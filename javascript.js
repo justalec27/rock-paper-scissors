@@ -11,7 +11,7 @@
 
 function getComputerChoice(){
     let randomNumber = Math.random()
-    console.log(randomNumber) // delete later
+    // console.log(randomNumber) // delete later
     if (randomNumber <= 0.33){
         return "rock";
     }  else if (randomNumber > 0.33 && randomNumber <= 0.66){
@@ -63,7 +63,7 @@ function playRound(humanChoice, computerChoice){
     } else if (humanChoice === "rock" && computerChoice === "paper"){
         console.log("You lose! Paper beats Rock")
         computerScore += 1
-    } else if (humanChoice === "paper" && computerChoice ==="scissor"){
+    } else if (humanChoice === "paper" && computerChoice ==="scissors"){
         console.log("You lose! Scissors beats Paper")
         computerScore += 1
     } else if (humanChoice === "paper" && computerChoice ==="rock"){
@@ -95,58 +95,100 @@ function playRound(humanChoice, computerChoice){
     3. call playRound 5 times
 */
 
-function playGame(){
-    humanScore = 0
-    computerScore = 0
-    let humanChoice = getHumanChoice().toLowerCase();
-    let computerChoice = getComputerChoice();
-    console.log(humanChoice)
-    console.log(computerChoice)
-    playRound(humanChoice, computerChoice);
-    console.log(`The human score: ${humanScore}`)
-    console.log(`The computer score: ${computerScore}`)
-    //new round
-    humanChoice = getHumanChoice().toLowerCase();
-    computerChoice = getComputerChoice();
-    console.log(humanChoice)
-    console.log(computerChoice)
-    playRound(humanChoice, computerChoice);
-    console.log(`The human score: ${humanScore}`);
-    console.log(`The computer score: ${computerScore}`);
+// function playGame(){
+//     humanScore = 0
+//     computerScore = 0
+//     let humanChoice = getHumanChoice().toLowerCase();
+//     let computerChoice = getComputerChoice();
+//     console.log(humanChoice)
+//     console.log(computerChoice)
+//     playRound(humanChoice, computerChoice);
+//     console.log(`The human score: ${humanScore}`)
+//     console.log(`The computer score: ${computerScore}`)
+//     //new round
+//     humanChoice = getHumanChoice().toLowerCase();
+//     computerChoice = getComputerChoice();
+//     console.log(humanChoice)
+//     console.log(computerChoice)
+//     playRound(humanChoice, computerChoice);
+//     console.log(`The human score: ${humanScore}`);
+//     console.log(`The computer score: ${computerScore}`);
 
-    humanChoice = getHumanChoice().toLowerCase();
-    computerChoice = getComputerChoice();
-    console.log(humanChoice)
-    console.log(computerChoice)
-    playRound(humanChoice, computerChoice);
-    console.log(`The human score: ${humanScore}`);
-    console.log(`The computer score: ${computerScore}`);
+//     humanChoice = getHumanChoice().toLowerCase();
+//     computerChoice = getComputerChoice();
+//     console.log(humanChoice)
+//     console.log(computerChoice)
+//     playRound(humanChoice, computerChoice);
+//     console.log(`The human score: ${humanScore}`);
+//     console.log(`The computer score: ${computerScore}`);
 
-    humanChoice = getHumanChoice().toLowerCase();
-    computerChoice = getComputerChoice();
-    console.log(humanChoice)
-    console.log(computerChoice)
-    playRound(humanChoice, computerChoice);
-    console.log(`The human score: ${humanScore}`);
-    console.log(`The computer score: ${computerScore}`);
+//     humanChoice = getHumanChoice().toLowerCase();
+//     computerChoice = getComputerChoice();
+//     console.log(humanChoice)
+//     console.log(computerChoice)
+//     playRound(humanChoice, computerChoice);
+//     console.log(`The human score: ${humanScore}`);
+//     console.log(`The computer score: ${computerScore}`);
 
-    humanChoice = getHumanChoice().toLowerCase();
-    computerChoice = getComputerChoice();
-    console.log(humanChoice)
-    console.log(computerChoice)
-    playRound(humanChoice, computerChoice);
-    console.log(`The human score: ${humanScore}`);
-    console.log(`The computer score: ${computerScore}`);
+//     humanChoice = getHumanChoice().toLowerCase();
+//     computerChoice = getComputerChoice();
+//     console.log(humanChoice)
+//     console.log(computerChoice)
+//     playRound(humanChoice, computerChoice);
+//     console.log(`The human score: ${humanScore}`);
+//     console.log(`The computer score: ${computerScore}`);
 
-    if (humanScore > computerScore){
-        console.log(`Congratulations, you won the game. Your score is ${humanScore} and the computer's score is ${computerScore}`);
-    } else if (humanScore < computerScore){
-        console.log(`Too bad, you lost the game. Your score is ${humanScore} and the computer's score is ${computerScore}`);
-    } else if (humanScore === computerScore){
-        console.log(`It's a draw. Your score is ${humanScore} and the computer's score is ${computerScore}`);
-    }
+//     if (humanScore > computerScore){
+//         console.log(`Congratulations, you won the game. Your score is ${humanScore} and the computer's score is ${computerScore}`);
+//     } else if (humanScore < computerScore){
+//         console.log(`Too bad, you lost the game. Your score is ${humanScore} and the computer's score is ${computerScore}`);
+//     } else if (humanScore === computerScore){
+//         console.log(`It's a draw. Your score is ${humanScore} and the computer's score is ${computerScore}`);
+//     }
 
-}
+// }
 
 //Start game
-playGame()
+// playGame()
+
+//User chooses rock
+const rock = document.querySelector(".rock");
+
+rock.addEventListener("click", (event) => {
+  let playerSelection = "rock"
+  let computerSelection = getComputerChoice()
+  console.log(`player selection is ${playerSelection}`)
+  console.log(`computer selection is ${computerSelection}`)
+  playRound(playerSelection, computerSelection)
+});
+
+//User chooses paper
+const paper = document.querySelector(".paper");
+
+paper.addEventListener("click", (event) => {
+  let playerSelection = "paper"
+  let computerSelection = getComputerChoice()
+  console.log(`player selection is ${playerSelection}`)
+  console.log(`computer selection is ${computerSelection}`)
+  playRound(playerSelection, computerSelection)
+});
+
+//User chooses scissors
+const scissors = document.querySelector(".scissors");
+
+scissors.addEventListener("click", (event) => {
+  let playerSelection = "scissors"
+  let computerSelection = getComputerChoice()
+  console.log(`player selection is ${playerSelection}`)
+  console.log(`computer selection is ${computerSelection}`)
+  playRound(playerSelection, computerSelection)
+});
+
+
+//Container design
+const container = document.querySelector("div")
+
+container.style.border = "1px solid black";
+container.style.backgroundColor = "powderblue";
+container.style.textAlign = "center"
+container.style.padding = "70px"
