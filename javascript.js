@@ -1,3 +1,42 @@
+//Container design
+const container = document.querySelector("div")
+
+container.style.border = "1px solid black";
+container.style.backgroundColor = "powderblue";
+container.style.textAlign = "center"
+container.style.padding = "70px"
+
+//Make the console logs visible in html
+const para = document.createElement("p")
+let node = document.createTextNode("This is the text node.")
+para.appendChild(node)
+container.appendChild(para)
+
+node.textContent = "The results will be displayed here."
+
+let humanScore = 0
+let computerScore = 0
+
+//Display user score
+const paraUserScore = document.createElement("p");
+let textNodeUserScore = document.createTextNode(`Your score: ${humanScore}`)
+paraUserScore.appendChild(textNodeUserScore)
+container.appendChild(paraUserScore)
+
+//Display computer score
+const paraCompScore = document.createElement("p");
+let textNodeCompScore = document.createTextNode(`Computer score: ${computerScore}`)
+paraCompScore.appendChild(textNodeCompScore)
+container.appendChild(paraCompScore)
+
+
+//Display winner announcement
+const announcement = document.createElement("p")
+announcement.style.color = "red"
+announcement.style.fontWeight = "bold"
+let announcementNode = document.createTextNode("The winner will be announced here.")
+announcement.appendChild(announcementNode)
+container.appendChild(announcement)
 
 
 /* STEP 2 Get Computer choice
@@ -37,15 +76,6 @@ function getHumanChoice(){
 }
 
 
-/* STEP 4 Keep track of human and computer score
-    1. Create two new variables named humanScore and 
-        computerScore in the global scope.
-    2. Initialize those variables with the value of 0.
-*/
-
-let humanScore = 0
-let computerScore = 0
-
 /* STEP 5 Play a single round
     1. Create function playRound    
     2. Create 2 variables humanChoice and computerChoice and take previous arguments 
@@ -56,31 +86,58 @@ let computerScore = 0
 function playRound(humanChoice, computerChoice){
 
     if (humanChoice === "rock" && computerChoice === "scissors"){
-       console.log("You win! Rock beats Scissors.");
+       node.textContent = "You win! Rock beats Scissors.";
        humanScore += 1
+       textNodeUserScore.textContent = `Your score: ${humanScore}`
+       textNodeCompScore.textContent = `Computer score: ${computerScore}`
     } else if (humanChoice === "rock" && computerChoice === "rock"){
-        console.log("It's a draw.")
+        node.textContent = "It's a draw. You both chose rock.";
+        textNodeUserScore.textContent = `Your score: ${humanScore}`
+        textNodeCompScore.textContent = `Computer score: ${computerScore}`
     } else if (humanChoice === "rock" && computerChoice === "paper"){
-        console.log("You lose! Paper beats Rock")
+        node.textContent = "You lose! Paper beats Rock"
         computerScore += 1
+        textNodeUserScore.textContent = `Your score: ${humanScore}`
+        textNodeCompScore.textContent = `Computer score: ${computerScore}`
     } else if (humanChoice === "paper" && computerChoice ==="scissors"){
-        console.log("You lose! Scissors beats Paper")
+        node.textContent = "You lose! Scissors beats Paper"
         computerScore += 1
+        textNodeUserScore.textContent = `Your score: ${humanScore}`
+        textNodeCompScore.textContent = `Computer score: ${computerScore}`
     } else if (humanChoice === "paper" && computerChoice ==="rock"){
-       console.log("You win! Paper beats Rock.");
+       node.textContent = "You win! Paper beats Rock.";
        humanScore += 1
+       textNodeUserScore.textContent = `Your score: ${humanScore}`
+       textNodeCompScore.textContent = `Computer score: ${computerScore}`
     } else if (humanChoice === "paper" && computerChoice ==="paper"){
-        console.log("It's a draw.")
+        node.textContent = "It's a draw. You both chose paper.";
+        textNodeUserScore.textContent = `Your score: ${humanScore}`
+        textNodeCompScore.textContent = `Computer score: ${computerScore}`
     } else if (humanChoice === "scissors" && computerChoice === "scissors"){
-        console.log("It's a draw.")
+        node.textContent = "It's a draw. You both chose scissors.";
+        textNodeUserScore.textContent = `Your score: ${humanScore}`
+        textNodeCompScore.textContent = `Computer score: ${computerScore}`
     } else if (humanChoice === "scissors" && computerChoice === "paper"){
-        console.log("You win! Scissors beats Paper.");
+        node.textContent = "You win! Scissors beats Paper.";
         humanScore += 1
+        textNodeUserScore.textContent = `Your score: ${humanScore}`
+        textNodeCompScore.textContent = `Computer score: ${computerScore}`
     } else if (humanChoice === "scissors" && computerChoice === "rock"){
-        console.log("You lose! Rock beats Scissors")
+        node.textContent = "You lose! Rock beats Scissors";
         computerScore += 1
+        textNodeUserScore.textContent = `Your score: ${humanScore}`
+        textNodeCompScore.textContent = `Computer score: ${computerScore}`
     }
 }
+
+function announceWinner() {
+    if (humanScore >= 5){
+        announcementNode.textContent = "Congratulations, you won the game!"
+    } else if (computerScore >= 5){
+         announcementNode.textContent = "Unfortunately, the computer won the game!"
+    } }
+
+
 
 // let humanChoice = getHumanChoice()
 // let computerChoice = getComputerChoice()
@@ -160,6 +217,7 @@ rock.addEventListener("click", (event) => {
   console.log(`player selection is ${playerSelection}`)
   console.log(`computer selection is ${computerSelection}`)
   playRound(playerSelection, computerSelection)
+  announceWinner()
 });
 
 //User chooses paper
@@ -171,6 +229,7 @@ paper.addEventListener("click", (event) => {
   console.log(`player selection is ${playerSelection}`)
   console.log(`computer selection is ${computerSelection}`)
   playRound(playerSelection, computerSelection)
+  announceWinner()
 });
 
 //User chooses scissors
@@ -182,13 +241,5 @@ scissors.addEventListener("click", (event) => {
   console.log(`player selection is ${playerSelection}`)
   console.log(`computer selection is ${computerSelection}`)
   playRound(playerSelection, computerSelection)
+  announceWinner()
 });
-
-
-//Container design
-const container = document.querySelector("div")
-
-container.style.border = "1px solid black";
-container.style.backgroundColor = "powderblue";
-container.style.textAlign = "center"
-container.style.padding = "70px"
